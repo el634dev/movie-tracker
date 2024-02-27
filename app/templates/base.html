@@ -1,12 +1,33 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
     <head>
-        <title>Project Title</title>
+        <title>Movie Tracker</title>
         <link rel="stylesheet" href="/static/style.css">
     </head>
     <body>
-        <!-- Add base html here. -->
-        
-        {% block content %}{% endblock %}
+        <div id="content">
+            <nav>
+                <a href="/">Home</a>
+                <div>
+                    <!-- TODO: Only show these links if the current user is 
+                        authenticated (logged in)! -->
+                    <a href="/create_movie">Create Movie</a>
+                    <a href="/create_director">Create Director</a>
+                    <!-- <a href="/create_genre">Create Genre</a> -->
+                    <!-- <a href="/logout">Log Out</a> -->
+
+                    <!-- TODO: Only show these links if the current user is NOT
+                        authenticated (logged in)! -->
+                    <a href="/signup">Sign Up</a>
+                    <a href="/login">Log In</a>
+                </div>
+            </nav>
+
+            {% for message in get_flashed_messages() %}
+                <p>{{ message }}</p>
+            {% endfor %}
+
+            {% block content %}{% endblock %}
+        </div>
     </body>
 </html>

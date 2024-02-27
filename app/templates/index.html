@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <h1>Movies & Directors Tracker</h1>
+    <p><em>The best place to find movies and who directed them!</em></p>
+
+    <!-- Show all movies -->
+    <h2>All Movies</h2>
+    {% for movie in all_movies %}
+        <div class="movie">
+            <a href="/movie/{{ movie.id }}">{{ movie.title }}</a> - 
+            {{ movie.items|length }} movies
+            <p><strong>Address:</strong> {{ movie.director }}</p>
+        </div>
+    {% endfor %}
+{% endblock %}

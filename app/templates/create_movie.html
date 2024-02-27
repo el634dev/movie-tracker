@@ -1,0 +1,42 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <h1>New Movie</h1>
+
+    <form action="{{url_for('main.new_movie'))}}" method="POST">
+       {{ form.csrf_token }}
+        <fieldset>
+            <legend>Enter a movie</legend>
+
+            {{ form.name.label }}
+            {{ form.name }}
+
+            <ul>
+            {% for error in form.name.errors %}
+                <li class="error">{{ error }}</li>
+            {% endfor %}
+            </ul>
+            
+            <!-- Year -->
+            {{ form.year.label }}
+            {{ form.year(placeholder="YYYY-mm-dd") }}
+            <ul>
+            {% for error in form.year.errors %}
+                <li class="error">{{ error }}</li>
+            {% endfor %}
+            </ul>
+            
+            <!-- Director -->
+            {{ form.director.label }}
+            {{ form.director }}
+
+            <ul>
+            {% for error in form.director.errors %}
+                <li class="error">{{ error }}</li>
+            {% endfor %}
+            </ul>
+                
+            {{ form.submit }}
+        </fieldset>
+    </form>
+{% endblock %}
