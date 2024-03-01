@@ -5,12 +5,33 @@
     <p><em>The best place to find movies and who directed them!</em></p>
 
     <!-- Show all movies -->
-    <h2>All Movies</h2>
-    {% for movie in all_movies %}
-        <div class="movie">
-            <a href="/movie/{{ movie.id }}">{{ movie.title }}</a> - 
-            {{ movie.items|length }} movies
-            <p><strong>Address:</strong> {{ movie.director }}</p>
-        </div>
+    <h2>Movies</h2>
+
+    <ul>
+        {% for movie in all_movies %}
+            <li><a href="/movie/{{ movie.id }}">{{ movie.name }}</a></li>
+        {% endfor %}
+    </ul>
+
+    <!-- Directors -->
+    <h2>Directors</h2>
+
+    <ul>
+    {% for director in all_directors %}
+        <li><a href="/director/{{ director.id }}">{{ director.name }}</a></li>
     {% endfor %}
+    </ul>
+
+    <!-- Users -->
+    <h2>Users</h2>
+    <p>
+        <a href="/create_user">New User</a>
+    </p>
+
+    <ul>
+        {% for user in all_users %}
+            <li><a href="/profile/{{ user.username }}">{{ user.username }}</a></li>
+        {% endfor %}
+    </ul>
+
 {% endblock %}
