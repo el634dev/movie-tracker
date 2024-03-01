@@ -1,13 +1,14 @@
 {% extends 'base.html' %}
 
 {% block content %}
-    <h1>New Movie</h1>
+    <h1>New Director</h1>
 
-    <form action="{{url_for('main.new_movie'))}}" method="POST">
+    <form action="{{ url_for('main.create_director') }}" method="POST">
        {{ form.csrf_token }}
         <fieldset>
-            <legend>Enter a movie</legend>
+            <legend>Enter a director</legend>
 
+            <!-- Director -->
             {{ form.name.label }}
             {{ form.name }}
 
@@ -17,25 +18,17 @@
             {% endfor %}
             </ul>
             
-            <!-- Year -->
-            {{ form.year.label }}
-            {{ form.year(placeholder="YYYY-mm-dd") }}
-            <ul>
-            {% for error in form.year.errors %}
-                <li class="error">{{ error }}</li>
-            {% endfor %}
-            </ul>
-            
-            <!-- Director -->
-            {{ form.director.label }}
-            {{ form.director }}
+            <!-- Director Bio -->
+            {{ form.biography.label }}
+            {{ form.biography }}
 
             <ul>
-            {% for error in form.director.errors %}
+            {% for error in form.biography.errors %}
                 <li class="error">{{ error }}</li>
             {% endfor %}
             </ul>
-                
+             
+
             {{ form.submit }}
         </fieldset>
     </form>
