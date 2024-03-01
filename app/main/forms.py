@@ -1,18 +1,14 @@
 from flask_wtf import FlaskForm
 from wtforms import StringField, DateField, SelectField, SubmitField, TextAreaField
 from wtforms.validators import DataRequired, Length, ValidationError
-from app.models import Movie, Director, Genre, User
-
 
 # -------------------------
 # Movie Form
 class MovieForm(FlaskForm):
     """Form to create a movie"""
-    name = StringField('Movie Name',
+    name = StringField('Name',
         validators=[DataRequired(), Length(min=3, max=80)])
-    year_created = DateField('Year Created')
-    # director = SelectField('Director', allow_blank=False)
-    genres = SelectField('Genres')
+    year = DateField('Date Created')
     submit = SubmitField('Submit')
 
 # ----------------------------
@@ -28,10 +24,10 @@ class DirectorForm(FlaskForm):
     submit = SubmitField('Submit')
 
 # -------------------------
-# Genre Form
-class GenreForm(FlaskForm):
+# User Form
+class UserForm(FlaskForm):
     """Form to create genres"""
-    # the genre's name (e.g. fiction, non-fiction, etc)
+    # the users name 
     name = StringField('Genre Name', validators=[DataRequired()])
     # - a submit button
     submit = SubmitField('Submit')
