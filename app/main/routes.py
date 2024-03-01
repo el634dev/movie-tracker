@@ -1,7 +1,7 @@
 """Import packages and modules"""
 from flask import Blueprint, render_template, redirect, url_for, flash
-from app.models import Movie, Director, Genre, User
-from app.main.forms import MovieForm, DirectorForm, GenreForm
+from app.models import Movie, Director, User
+from app.main.forms import MovieForm, DirectorForm
 
 from app.extensions import db
 
@@ -20,66 +20,95 @@ main = Blueprint("main", __name__)
 def homepage():
     """Homepage"""
     all_movies = Movie.query.all()
-    return render_template('index.html', all_movies=all_movies)
+    all_directors = Director.query.all()
+    return render_template('index.html', 
+            all_movies=all_movies, all_directors=all_directors)
 
-
+# -------------------------------------
+# Create a new movie
 @main.route('/create_movie', methods=['GET', 'POST'])
 def create_movie():
     """Create a new movie"""
+    # Make an MovieForm instance
     form = MovieForm()
 
-    # if form was submitted and contained no errors
+    # If the form was submitted and is valid, create a new Author object
     if form.validate_on_submit():
         new_movie = Movie(
             name=form.name.data,
-            year=form.year_created.data,
-            genres=form.genres.data,
+            year=form.year.data,
+            # audience=form.audience.data
         )
 
+        # and save to the database, then flash a success message to the user and
         db.session.add(new_movie)
         db.session.commit()
 
-        flash('New movie was created successfully.')
-        # Change
-        return redirect(url_for('main.movie_detail', movie_id=new_movie.id))
+        # redirect to the homepage
+        flash('New movie was created.')
+        return redirect(url_for('main.create_movie', movie_id=new_movie.id))
+    # Send the form object to the template, and use it to render the form fields
     return render_template('create_movie.html', form=form)
 
-
+# -------------------------------------
+# Create a new director
 @main.route('/create_director', methods=['GET', 'POST'])
 def create_director():
-    # TODO: Make an AuthorForm instance
+    """Create a new director"""
+    # Make an DirectorForm instance
+    form = DirectorForm()
 
-    # TODO: If the form was submitted and is valid, create a new Author object
-    # and save to the database, then flash a success message to the user and
-    # redirect to the homepage
+    # If the form was submitted and is valid, create a new Author object
+    if form.validate_on_submit():
+        new_director = Director(
+            name=form.name.data,
+            biography=form.biography.data
+        )
 
-    # TODO: Send the form object to the template, and use it to render the form
-    # fields
-    return render_template('create_director.html')
+        # and save to the database, then flash a success message to the user and
+        db.session.add(new_director)
+        db.session.commit()
 
+        # redirect to the homepage
+        flash('New director was created.')
+        return redirect(url_for('main.create_director', director_id=new_director.id))
+    # Send the form object to the template, and use it to render the form fields
+    return render_template('create_director.html', form=form)
 
-@main.route('/create_genre', methods=['GET', 'POST'])
-def create_genre():
-    # TODO: Make a GenreForm instance
+# -------------------------------------
+# See director details
+@main.route('/director/<director_id>', methods=['GET', 'POST'])
+def director_detail(director_id):
+    """Director detail page"""
+    director = Director.query.get(director_id)
+    form = DirectorForm(obj=director)
 
-    # TODO: If the form was submitted and is valid, create a new Genre object
-    # and save to the database, then flash a success message to the user and
-    # redirect to the homepage
+    # If the form was submitted and is valid, update the fields in the 
+    if form.validate_on_submit():
+        # Movie object and save to the database, then flash a success message to the 
+        form.populate_obj(director)
 
-    # TODO: Send the form object to the template, and use it to render the form
-    # fields
-    return render_template('create_genre.html')
+        db.session.commit()
+        flash('Updated director sucessfully')
+    # user and redirect to the director detail page
+    return render_template('director_detail.html', director=director, form=form)
 
-
+# -------------------------------------
+# See movie details
 @main.route('/movie/<movie_id>', methods=['GET', 'POST'])
 def movie_detail(movie_id):
+    """Movie detail page"""
     movie = Movie.query.get(movie_id)
     form = MovieForm(obj=movie)
 
-    # TODO: If the form was submitted and is valid, update the fields in the 
-    # Book object and save to the database, then flash a success message to the 
-    # user and redirect to the book detail page
-    # Change
+    # If the form was submitted and is valid, update the fields in the
+    if form.validate_on_submit():
+        # Movie object and save to the database, then flash a success message to the
+        form.populate_obj(movie)
+
+        db.session.commit()
+        flash('Updated movie sucessfully')
+    # user and redirect to the director detail page
     return render_template('movie_detail.html', movie=movie, form=form)
 
 
@@ -87,7 +116,6 @@ def movie_detail(movie_id):
 def profile(username):
     # TODO: Make a query for the user with the given username, and send to the
     # template
-
-    # STRETCH CHALLENGE: Add ability to modify a user's username or favorite 
-    # books
+    username = User.query.filter_by(username=username).first()
+    # STRETCH CHALLENGE: Add ability to modify a user's username or favorite movies
     return render_template('profile.html', username=username)
