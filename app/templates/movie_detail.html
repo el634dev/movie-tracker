@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<h1>{{ movie.name }}</h1>
+
+<form method="POST" action="{{ url_for('main.movie_detail', movie_id=movie.id) }}">
+    {{ form.csrf_token }}
+    <fieldset>
+        <legend>Edit this movie</legend>
+
+        {{ form.name.label }}
+        {{ form.name }}
+
+        {{ form.year.label }}
+        {{ form.year(placeholder="YYYY-mm-dd") }}
+
+        {{ form.submit }}
+    </fieldset>
+</form>
+
+{% endblock %}
