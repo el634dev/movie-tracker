@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<h1>{{ director.name }}</h1>
+
+<form method="POST" action="{{ url_for('main.director_detail', director_id=director.id) }}">
+    {{ form.csrf_token }}
+    <fieldset>
+        <legend>Edit this director</legend>
+
+        {{ form.name.label }}
+        {{ form.name }}
+        
+        {{ form.biography.label }}
+        {{ form.biography }}
+        
+        {{ form.submit }}
+    </fieldset>
+</form>
+
+{% endblock %}
