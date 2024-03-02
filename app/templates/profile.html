@@ -7,11 +7,11 @@ Welcome to {{ user }}'s profile.
 </p>
 
 <p>
-    {{ user }}'s favorite books are:
+    {{ user }}'s favorite movies are:
 
     <ul>
-        {% for movie in user.favorite_movies %}
-        <li><a href="/movie/{{ movie.id }}">{{ movie.title }}</a></li>
+        {% for movie in current_user.favorite_movies %}
+            <li><a href="/movie/{{ movie.id }}">{{ movie.name }}</a></li>
         {% endfor %}
     </ul>
 </p>
