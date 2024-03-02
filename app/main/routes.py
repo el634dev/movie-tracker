@@ -122,3 +122,36 @@ def profile(username):
     # STRETCH CHALLENGE: Add ability to modify a user's username or favorite movies
     return render_template('profile.html', user=username)
 
+ ----------------------------------
+# Favorite movie route
+@main.route('/favorite/<movie_id>', methods=['POST'])
+@login_required
+def favorite_movie(movie_id):
+    """Show favorite movies"""
+    movie = Movie.query.get(movie_id)
+    if movie in current_user.favorite_movies:
+        flash('Movie already in favorites.')
+    else:
+        current_user.favorite_movies.append(movie)
+        db.session.add(current_user)
+        db.session.commit()
+
+        flash('Movie added to favorites.')
+    return redirect(url_for('main.movie_detail', movie_id=movie_id))
+
+# ----------------------------------
+# Unfavorite movie route
+@main.route('/unfavorite/<movie_id>', methods=['POST'])
+@login_required
+def unfavorite_movie(movie_id):
+    """Unfavorite movie"""
+    movie = Movie.query.get(movie_id)
+    if movie not in current_user.favorite_movies:
+        flash('Movie not in favorites.')
+    else:
+        current_user.favorite_movies.remove(movie)
+        db.session.add(current_user)
+        db.session.commit()
+
+        flash('Movie removed from favorites.')
+    return redirect(url_for('main.movie_detail', movie_id=movie_id))
