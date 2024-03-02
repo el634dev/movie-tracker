@@ -112,11 +112,13 @@ def movie_detail(movie_id):
     # user and redirect to the director detail page
     return render_template('movie_detail.html', movie=movie, form=form)
 
-
+# -------------------------------------
+# See profile
 @main.route('/profile/<username>')
 def profile(username):
-    # TODO: Make a query for the user with the given username, and send to the
-    # template
-    username = User.query.filter_by(username=username).first()
+    """Show user's profile"""
+    # Make a query for the user with the given username, and send to the template
+    user = User.query.filter_by(username=username).first()
     # STRETCH CHALLENGE: Add ability to modify a user's username or favorite movies
-    return render_template('profile.html', username=username)
+    return render_template('profile.html', user=username)
+
