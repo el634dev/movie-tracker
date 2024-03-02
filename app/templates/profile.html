@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<p>
+Welcome to {{ user }}'s profile.
+</p>
+
+<p>
+    {{ user }}'s favorite books are:
+
+    <!-- <ul>
+        {% for book in user.favorite_books %}
+        <li><a href="/book/{{ book.id }}">{{ book.title }}</a></li>
+        {% endfor %}
+    </ul> -->
+</p>
+
+{% endblock %}
