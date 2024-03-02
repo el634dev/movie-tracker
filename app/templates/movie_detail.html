@@ -5,9 +5,13 @@
 <h1>{{ movie.name }}</h1>
 
 {% if current_user.is_authenticated %}
-    {% if movie not in current_user.favorite_movie %}
+    {% if movie not in current_user.favorite_movies %}
     <form action="/favorite/{{ movie.id }}" method="POST">
         <input type="submit" value="Favorite Movie">
+    </form>
+    {% else %}
+    <form action="/unfavorite/{{ movie.id }}" method="POST">
+        <input type="submit" value="Unfavorite Movie">
     </form>
     {% endif %}
 {% endif %}
