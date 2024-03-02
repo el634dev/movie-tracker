@@ -9,19 +9,20 @@
             <nav>
                 <a href="/">Home</a>
                 <div>
-                    <!-- TODO: Only show these links if the current user is 
-                        authenticated (logged in)! -->
-                    <a href="/create_movie">Create Movie</a>
-                    <a href="/create_director">Create Director</a>
-                    <!-- <a href="/create_genre">Create Genre</a> -->
-                    <!-- <a href="/logout">Log Out</a> -->
-
-                    <!-- TODO: Only show these links if the current user is NOT
-                        authenticated (logged in)! -->
-                    <a href="/signup">Sign Up</a>
-                    <a href="/login">Log In</a>
+                    {% if current_user.is_authenticated %}
+                        <a href="/create_movie">Create Movie</a>
+                        <a href="/create_director">Create Director</a>
+                        <a href="/logout">Log Out</a>
+                    {% else %}
+                        <a href="/signup">Sign Up</a>
+                        <a href="/login">Log In</a>
+                    {% endif %}
                 </div>
             </nav>
+
+            {% if current_user.is_authenticated %}
+                <p>You are logged as in {{ current_user.username }}</p>
+            {% endif %}
 
             {% for message in get_flashed_messages() %}
                 <p>{{ message }}</p>
@@ -31,3 +32,4 @@
         </div>
     </body>
 </html>
+
