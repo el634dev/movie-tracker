@@ -20,9 +20,10 @@ main = Blueprint("main", __name__)
 def homepage():
     """Homepage"""
     all_movies = Movie.query.all()
+    all_users = User.query.all()
     all_directors = Director.query.all()
     return render_template('index.html', 
-            all_movies=all_movies, all_directors=all_directors)
+            all_movies=all_movies, all_directors=all_directors, all_users=all_users)
 
 # -------------------------------------
 # Create a new movie
