@@ -1,5 +1,6 @@
 """Import packages and modules"""
 from flask import Blueprint, render_template, redirect, url_for, flash
+from flask_login import login_required, current_user
 from app.models import Movie, Director, User
 from app.main.forms import MovieForm, DirectorForm
 
@@ -22,7 +23,7 @@ def homepage():
     all_movies = Movie.query.all()
     all_users = User.query.all()
     all_directors = Director.query.all()
-    return render_template('index.html', 
+    return render_template('index.html',
             all_movies=all_movies, all_directors=all_directors, all_users=all_users)
 
 # -------------------------------------
@@ -112,9 +113,9 @@ def movie_detail(movie_id):
     # user and redirect to the director detail page
     return render_template('movie_detail.html', movie=movie, form=form)
 
-# -------------------------------------
-# See profile
+
 @main.route('/profile/<username>')
+@login_required
 def profile(username):
     """Show user's profile"""
     # Make a query for the user with the given username, and send to the template
@@ -122,7 +123,7 @@ def profile(username):
     # STRETCH CHALLENGE: Add ability to modify a user's username or favorite movies
     return render_template('profile.html', user=username)
 
- ----------------------------------
+# ----------------------------------
 # Favorite movie route
 @main.route('/favorite/<movie_id>', methods=['POST'])
 @login_required
@@ -155,3 +156,4 @@ def unfavorite_movie(movie_id):
 
         flash('Movie removed from favorites.')
     return redirect(url_for('main.movie_detail', movie_id=movie_id))
+
