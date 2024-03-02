@@ -9,11 +9,11 @@ Welcome to {{ user }}'s profile.
 <p>
     {{ user }}'s favorite books are:
 
-    <!-- <ul>
-        {% for book in user.favorite_books %}
-        <li><a href="/book/{{ book.id }}">{{ book.title }}</a></li>
+    <ul>
+        {% for movie in user.favorite_movies %}
+        <li><a href="/movie/{{ movie.id }}">{{ movie.title }}</a></li>
         {% endfor %}
-    </ul> -->
+    </ul>
 </p>
 
 {% endblock %}
