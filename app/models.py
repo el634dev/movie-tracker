@@ -65,6 +65,14 @@ class User(db.Model, UserMixin):
     username = db.Column(db.String(80), nullable=False, unique=True)
     # Password
     password = db.Column(db.String(200), nullable=False)
+    # Favorite movies
+    favorite_movies = db.relationship(
+        'Movie', secondary='user_movie', back_populates='users_who_favorited')
 
     def __repr__(self):
         return f'<User: {self.username}>'
+
+favorite_movies_table = db.Table('user_movie',
+    db.Column('movie_id', db.Integer, db.ForeignKey('movie.id')),
+    db.Column('user_id', db.Integer, db.ForeignKey('user.id'))
+)
