@@ -2,25 +2,6 @@ from app.extensions import db
 from flask_login import UserMixin
 import enum
 
-# # -------------------
-# class FormEnum(enum.Enum):
-#     """Helper class to make it easier to use enums with forms."""
-#     @classmethod
-#     def choices(cls):
-#         return [(choice.name, choice) for choice in cls]
-
-#     def __str__(self):
-#         return str(self.value)
-
-# -------------------
-# Audience
-# class Audience(FormEnum):
-#     """Audience Model"""
-#     CHILDREN = 'Children'
-#     YOUNG_ADULT = 'Young Adult'
-#     ADULT = 'Adult'
-#     ALL = 'All'
-
 #####################
 #    Models         #
 ####################
@@ -32,6 +13,8 @@ class Movie(db.Model):
     # Name of movie
     name = db.Column(db.String(80), nullable=False)
     year = db.Column(db.Date)
+    users_who_favorited = db.relationship(
+        'User', secondary='user_movie', back_populates='favorite_movies')
 
     def __str__(self):
         return f'<Movie: {self.name}>'
