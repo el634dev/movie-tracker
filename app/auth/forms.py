@@ -6,37 +6,37 @@ from app.models import User
 
 class SignUpForm(FlaskForm):
     """Sign Up Form"""
-    username = StringField('Username', 
-            validators=[DataRequired(), Length(min=3, max=50)])
+    username = StringField('User Name',
+        validators=[DataRequired(), Length(min=3, max=50)])
     # Password
-    password = PasswordField('Password', 
-            validators=[DataRequired(), Length(min=3, max=50)])
+    password = PasswordField('Password', validators=[DataRequired()])
     # Submit
-    submit = SubmitField('Submit')
+    submit = SubmitField('Sign Up')
 
     def validate_user(self, username):
         """Validate a user"""
         user = User.query.filter_by(username=username.data).first()
+        # Check user
         if user:
-            raise ValidationError('That username is taken. Please choose a different username.')
+            raise ValidationError('That username is taken. Please choose a different one.')
+
 
 class LoginForm(FlaskForm):
     """Login Form"""
-    username = StringField('Username', 
-            validators=[DataRequired(), Length(min=3, max=50)])
+    username = StringField('Username',
+        validators=[DataRequired(), Length(min=3, max=50)])
     # Password
-    password = PasswordField('Password', 
-            validators=[DataRequired(), Length(min=3, max=50)])
+    password = PasswordField('Password', validators=[DataRequired()])
     # Submit
-    submit = SubmitField('Submit')
+    submit = SubmitField('Log In')
 
     # -----------------------------------
-    # Validate Username
     def validate_username(self, username):
-        """Validate a username"""
+        """Validate a user's username"""
         user = User.query.filter_by(username=username.data).first()
-        if user:
-            raise ValidationError('That username is taken. Please choose a different username.')
+
+        if not user:
+            raise ValidationError('No user with that username. Please try again.')
 
     # -----------------------------------
     # Validate Password
@@ -45,6 +45,7 @@ class LoginForm(FlaskForm):
         user = User.query.filter_by(username=self.username.data).first()
 
         if user and not bcrypt.check_password_hash(
-            user.password, password.data):
-            raise ValidationError('Password does not match. Please try again.')
+                user.password, password.data):
+            raise ValidationError('Password doesn\'t match. Please try again.')
+
 
