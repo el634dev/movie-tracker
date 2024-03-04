@@ -148,11 +148,11 @@ Project is: completed
 
 <!-- License -->
 ## License
-Distributed under no License. See LICENSE.txt for more information.
+Distributed under no License.
 
 <!-- Demo -->
 ## Demo
-Project Link: [https://github.com/Louis3797/awesome-readme-template](https://github.com/Louis3797/awesome-readme-template)
+Project Link: [https://github.com/Louis3797/awesome-readme-template](https://github.com/el634dev/movie-tracker)
 
 <!-- Acknowledgments -->
 ## Acknowledgements
