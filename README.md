@@ -111,7 +111,7 @@ Go to the project directory
 ```
 
 Create a virtual enivornment then activate inside of the project directory(folder)
-# Note this helps create a seperate enivornment from the global enivornment
+> Note this helps create a seperate enivornment from the global enivornment
 ```bash
   python3 -m venv venv
   source venv/bin/activate
