@@ -152,13 +152,4 @@ Distributed under no License.
 
 <!-- Demo -->
 ## Demo
-Project Link: [https://github.com/Louis3797/awesome-readme-template](https://github.com/el634dev/movie-tracker)
-
-<!-- Acknowledgments -->
-## Acknowledgements
-Use this section to mention useful resources and libraries that you have used in your projects.
-
- - [Shields.io](https://shields.io/)
- - [Awesome README](https://github.com/matiassingers/awesome-readme)
- - [Emoji Cheat Sheet](https://github.com/ikatyang/emoji-cheat-sheet/blob/master/README.md#travel--places)
- - [Readme Template](https://github.com/othneildrew/Best-README-Template)
+Project Link: [https://github.com/el634dev/movie-tracker](https://github.com/el634dev/movie-tracker)
