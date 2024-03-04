@@ -41,7 +41,6 @@
 - [Usage](#usage)
 - [License](#license)
 - [Live Demo](#demo)
-- [Acknowledgements](#acknowledgements)
   
 
 <!-- About the Project -->
