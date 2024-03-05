@@ -12,7 +12,7 @@ auth = Blueprint("auth", __name__)
 # Signup a user
 @auth.route('/signup', methods=['GET', 'POST'])
 def signup():
-    """Sign Up"""
+    """Sign Up Form/Route"""
     form = SignUpForm()
 
     if form.validate_on_submit():
@@ -32,7 +32,7 @@ def signup():
 # Login a user
 @auth.route('/login', methods=['GET', 'POST'])
 def login():
-    """Login in a user"""
+    """Sign In Form/Route"""
     form = LoginForm()
 
     if form.validate_on_submit():
