@@ -74,11 +74,11 @@
 
 <!-- Env Variables -->
 ## Environment Variables
-To run this project, you will need to add the following environment variables to your .env file
+To run this project, you will need to add the following environment variables to your .env file before running `python app.py`
 
-`DATABASE_URL`
-
-`SECRET_KEY`
+`DATABASE_URL` - set this as the url to your database, start with sqlite:///
+>
+`SECRET_KEY` - set this to something secure
 
 <!-- Getting Started -->
 ## Getting Started
