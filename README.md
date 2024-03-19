@@ -30,7 +30,7 @@
 <!-- Table of Contents -->
 # Table of Contents
 
-- [About the Project](#about-the-project)
+- [Screenshot](#screenshot)
   * [Tech Stack](#tech-stack)
   * [Features](#features)
   * [Environment Variables](#environment-variables)
@@ -44,7 +44,7 @@
   
 
 <!-- About the Project -->
-## About the Project
+## Screenshot
 
 <div align="center"> 
   <img width="1047" alt="Screenshot 2024-03-03 at 7 22 49 PM" src="https://github.com/el634dev/movie-tracker/assets/84924260/882216a4-e56c-4d74-b646-4e285ad840a7">
