@@ -14,7 +14,7 @@
     <img src="https://img.shields.io/github/issues/el634dev/movie-tracker" alt="open issues" />
   </a>
   <a href="https://github.com/Louis3797/awesome-readme-template/blob/master/LICENSE">
-    <img src="https://img.shields.io/github/license/el634dev/movie-tracker" alt="license" />
+    <img src="https://img.shields.io/badge/Made%20with-Flask-1f425f.svg" alt="license" />
   </a>
 </p>
    
@@ -29,7 +29,6 @@
 
 <!-- Table of Contents -->
 # Table of Contents
-
 - [Screenshot](#screenshot)
   * [Tech Stack](#tech-stack)
   * [Features](#features)
@@ -45,15 +44,13 @@
 
 <!-- About the Project -->
 ## Screenshot
-
 <div align="center"> 
   <img width="1047" alt="Screenshot 2024-03-03 at 7 22 49 PM" src="https://github.com/el634dev/movie-tracker/assets/84924260/882216a4-e56c-4d74-b646-4e285ad840a7">
 </div>
 
 
 <!-- TechStack -->
-### Tech Stack
-
+## Tech Stack
 <details>
   <summary>Client</summary>
   <ul>
