@@ -1,5 +1,5 @@
 ## Movie Tracker
-> Movie tracker app that helps users track their favorite movies and director
+> Movie tracker app that helps users track their favorite movies and directors
 
 <div align="center">
 <!-- Badges -->
