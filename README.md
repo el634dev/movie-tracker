@@ -28,7 +28,7 @@
 <br />
 
 <!-- Table of Contents -->
-# Table of Contents
+## Table of Contents
 - [Screenshot](#screenshot)
   * [Tech Stack](#tech-stack)
   * [Features](#features)
@@ -48,7 +48,6 @@
   <img width="1047" alt="Screenshot 2024-03-03 at 7 22 49 PM" src="https://github.com/el634dev/movie-tracker/assets/84924260/882216a4-e56c-4d74-b646-4e285ad840a7">
 </div>
 
-
 <!-- TechStack -->
 ## Tech Stack
 <details>
@@ -62,7 +61,7 @@
 <details>
   <summary>Server</summary>
   <ul>
-    <li><a href="https://docs.python.org/3/index.html">Python3</a></li>
+    <li><a href="https://flask.palletsprojects.com/en/2.3.x/quickstart/">Flask</a></li>
   </ul>
 </details>
 
@@ -74,8 +73,7 @@
 </details>
 
 <!-- Env Variables -->
-### Environment Variables
-
+## Environment Variables
 To run this project, you will need to add the following environment variables to your .env file
 
 `DATABASE_URL`
@@ -107,7 +105,7 @@ Go to the project directory
 ```
 
 Create a virtual enivornment then activate inside of the project directory(folder)
-> Note this helps create a seperate enivornment from the global enivornment
+> Note this helps create a seperate environment from the global enviornment
 ```bash
   python3 -m venv venv
   source venv/bin/activate
@@ -127,7 +125,7 @@ Start the server
 
 <!-- Project Status -->
 ## Project Status
-Project is: completed
+Project is: __completed__
 
 <!-- Usage -->
 ## Usage
