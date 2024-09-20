@@ -62,6 +62,7 @@
   <summary>Server</summary>
   <ul>
     <li><a href="https://flask.palletsprojects.com/en/2.3.x/quickstart/">Flask</a></li>
+    <li><a href="https://docs.docker.com/get-started/">Docker</a></li>
   </ul>
 </details>
 
@@ -123,6 +124,10 @@ Start the server
   python3 app.py
 ```
 
+Docker Setup
+- Make sure to have the desktop [app](https://www.docker.com/) and the Postgres [app](https://postgresapp.com/)
+- After run `docker build` or `docker compose up`, for this project I just used `docker compose up`
+
 <!-- Project Status -->
 ## Project Status
 Project is: __completed__
@@ -136,9 +141,9 @@ Project is: __completed__
 -  `A user can also add their favorite movies and unfavorite them at anytime and see a list of their favorite movies in their profile`
 
 ## Features:
-- Authenication
+- Authenication and Authorization
 - CRUD Functionality
-- User Profile
+- Can add a user profile
 
 <!-- License -->
 ## License
