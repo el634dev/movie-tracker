@@ -83,6 +83,10 @@ To run this project, you will need to add the following environment variables to
 `DATABASE_URL` - set this as the url to your database, start with sqlite:///
 >
 `SECRET_KEY` - set this to something secure
+>
+`POSTGRES_USER` - set this to your username
+>
+`POSTGRES_PASSWORD` - set this to your password, it should be secure
 
 <!-- Getting Started -->
 ## Getting Started
