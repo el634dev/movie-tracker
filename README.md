@@ -124,9 +124,10 @@ Start the server
   python3 app.py
 ```
 
+## Docker
 Docker Setup
 - Make sure to have the desktop [app](https://www.docker.com/) and the Postgres [app](https://postgresapp.com/)
-- After run `docker build` or `docker compose up`, for this project I just used `docker compose up`
+- After run `docker build -t movie-tracker .` then `docker compose up` inside of the project directory (e.x. movie-tracker-main)
 
 <!-- Project Status -->
 ## Project Status
