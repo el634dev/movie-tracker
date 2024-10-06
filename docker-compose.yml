@@ -5,14 +5,16 @@
       image: postgres
       environment:
         - POSTGRES_DB=sqlalchemy
-        - POSTGRES_USER=sqlalchemy
-        - POSTGRES_PASSWORD=sqlalchemy
+        - POSTGRES_USER=os.getenv("POSTGRES_USER")
+        - POSTGRES_PASSWORD=os.getenv("POSTGRES_PASSWORD")
     web:
       build: .
-      command: python app.py
+      command: python app.py --host=0.0.0.0
       volumes:
-        - .:/code
+        - ./data:/data/db
       ports:
-        - "8000:8000"
+        - "5000:5000"
+        - "5432:5432"
       depends_on:
         - db
+
