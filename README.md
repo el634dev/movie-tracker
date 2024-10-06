@@ -16,6 +16,9 @@
   <a href="https://github.com/Louis3797/awesome-readme-template/blob/master/LICENSE">
     <img src="https://img.shields.io/badge/Made%20with-Flask-1f425f.svg" alt="license" />
   </a>
+  <a>
+    <img src="https://img.shields.io/github/actions/workflow/status/el634dev/movie-tracker/.github%2Fworkflows%2Fpython-app.yml"/>
+  </a>
 </p>
    
 <h4>
