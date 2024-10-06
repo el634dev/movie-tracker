@@ -24,5 +24,5 @@ ENV FLASK_DEBUG=development
 EXPOSE 5000
 
 # STEP 7: Run Flask!
-CMD ["flask", "app.py", "--host=0.0.0.0:5000"]
+CMD ["python", "app.py", "--host=0.0.0.0:5000"]
 # CMD ["flask", "run", "--host=0.0.0.0"]
