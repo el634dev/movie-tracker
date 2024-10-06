@@ -37,6 +37,7 @@
   * [Features](#features)
   * [Environment Variables](#environment-variables)
 - [Getting Started](#getting-started)
+  * [Docker Setup](#docker-setup)
   * [Prerequisites](#prerequisites)
   * [Installation](#installation)
   * [Run Locally](#run-locally)
@@ -131,8 +132,7 @@ Start the server
   python3 app.py
 ```
 
-## Docker
-Docker Setup
+## Docker Setup
 - Make sure to have the desktop [app](https://www.docker.com/) and the Postgres [app](https://postgresapp.com/)
 - After run `docker build -t movie-tracker .` then `docker compose up` inside of the project directory (e.x. movie-tracker-main)
 
